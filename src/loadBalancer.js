@@ -11,19 +11,15 @@ const healthCheckInterval = process.env.HEALTH_CHECK_INTERVAL
   : 5;
 
 // Start by doing a health check for each server
-healthCheck.performHealthCheck();
+healthCheck.performHealthChecks();
 
 // Every health check interval, perform a health check
 // Default is 5 seconds
 const timer = setInterval(async () => {
-  await healthCheck.performHealthCheck();
+  await healthCheck.performHealthChecks();
 }, 1000 * healthCheckInterval);
 
 timer.unref();
-
-app.get("/_health", (req, res) => {
-  res.send();
-});
 
 // Load balancer sends request to backend server
 app.get("/", async (req, res) => {
