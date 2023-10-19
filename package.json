@@ -2,15 +2,17 @@
   "name": "load-balancer",
   "version": "1.0.0",
   "description": "",
-  "main": "src/lb.js",
+  "main": "src/loadBalancer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node src/lb.js"
+    "dev": "node src/loadBalancer.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^1.5.1",
     "express": "^4.18.2"
   },
   "devDependencies": {
