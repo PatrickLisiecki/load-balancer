@@ -13,7 +13,7 @@ const isHealthy = async (serverURL) => {
     // Check if server successfuly responds
     return response.status === 200;
   } catch (err) {
-    return err;
+    return false;
   }
 };
 
