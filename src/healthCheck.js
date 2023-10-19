@@ -22,8 +22,14 @@ const performHealthChecks = async () => {
     const isServerHealthy = await isHealthy(server);
     if (isServerHealthy) {
       console.log(`${server} is healthy.`);
+
+      // Make sure server is in active servers array
+      backendServers.addServer(server);
     } else {
       console.log(`${server} is not healthy.`);
+
+      // Remove the server from the active servers array
+      backendServers.removeServer(server);
     }
   }
 };

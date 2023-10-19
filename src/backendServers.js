@@ -28,9 +28,29 @@ const getServer = () => {
   }
 };
 
+// Remove a server from the dynamic servers array
+// This would be called when a server is unresponsive
+const removeServer = (serverURL) => {
+  dynamicServers.filter((server) => {
+    server !== serverURL;
+  });
+};
+
+// Add a server to the dynamic servers array
+// This would be called when a non-responsive server becomes responsive
+const addServer = (serverURL) => {
+  if (dynamicServers.find((server) => server === serverURL)) {
+    return;
+  } else {
+    dynamicServers.push(serverURL);
+  }
+};
+
 const getAllServers = () => {
   return allServers;
 };
 
 exports.getServer = getServer;
+exports.removeServer = removeServer;
+exports.addServer = addServer;
 exports.getAllServers = getAllServers;
